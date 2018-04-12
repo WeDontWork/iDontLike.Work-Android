@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/IDontLikeWork.iml" filepath="$PROJECT_DIR$/IDontLikeWork.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bounce-animation/bounce-animation.iml" filepath="$PROJECT_DIR$/bounce-animation/bounce-animation.iml" />
     </modules>
   </component>
 </project>

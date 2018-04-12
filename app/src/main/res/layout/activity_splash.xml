@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@color/colorPrimaryDarkTransparent"
+        android:background="@color/darkTransparent"
         android:fontFamily="@font/roboto_regular"
         android:paddingBottom="20dp"
         android:paddingEnd="20dp"
@@ -24,8 +24,67 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/loading_view"
+        app:layout_constraintBottom_toBottomOf="@+id/include"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/splash_screen_loading_text"
+            android:textSize="16sp"
+            android:textColor="@color/splash_screen_text_color" />
+
+        <com.udevel.widgetlab.TypingIndicatorView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            app:animateFrequency="500"
+            app:animationOrder="lastOneFirst"
+            app:backgroundColor="@color/colorPrimaryDarkTransparent"
+            app:backgroundType="rounded"
+            app:dotAnimationDuration="500"
+            app:dotAnimationType="Sliding"
+            app:dotColor="#fff"
+            app:dotCount="4"
+            app:dotHorizontalSpacing="5dp"
+            app:dotMaxCompressRatio="70%"
+            app:dotSecondColor="#fff"
+            app:dotSize="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"/>
+
+        <!--<com.udevel.widgetlab.TypingIndicatorView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="8dp"-->
+            <!--app:animateFrequency="600"-->
+            <!--app:animationOrder="circular"-->
+            <!--app:backgroundColor="@color/colorPrimaryDarkTransparent"-->
+            <!--app:backgroundType="rounded"-->
+            <!--app:dotAnimationDuration="1000"-->
+            <!--app:dotAnimationType="Wink"-->
+            <!--app:dotColor="#fff"-->
+            <!--app:dotCount="3"-->
+            <!--app:dotHorizontalSpacing="5dp"-->
+            <!--app:dotMaxCompressRatio="70%"-->
+            <!--app:dotSecondColor="#fff"-->
+            <!--app:dotSize="10dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_gravity="center"/>-->
+
+    </LinearLayout>
+
     <Button
-        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -34,7 +93,9 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/splash_screen_show_reasons_button"
         android:paddingEnd="20dp"
+        android:visibility="gone"
         android:paddingStart="20dp"
+        android:id="@+id/show_reason_button"
         android:text="@string/splash_screen_button_text"
         android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="@+id/include"
