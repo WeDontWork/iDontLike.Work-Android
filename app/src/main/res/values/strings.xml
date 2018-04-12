@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">I Don\'t Like Work</string>
+    <string name="splash_screen_text">I don\'t\nlike\n.work</string>
+    <string name="splash_screen_button_text">Show me a reason</string>
 </resources>

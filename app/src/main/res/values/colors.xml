@@ -2,6 +2,9 @@
 <resources>
     <color name="colorPrimaryDark">#005357</color>
     <color name="colorAccent">#F0D00D</color>
-
+    <color name="colorPrimaryDarkTransparent">#80005357</color>
     <color name="colorPrimary">#119DA4</color>
+    <color name="splash_screen_text_color">#fff</color>
+    <color name="splash_screen_text_color_transparent75">#d8ffffff</color>
+    <color name="splash_screen_text_color_transparent50">#c8ffffff</color>
 </resources>
