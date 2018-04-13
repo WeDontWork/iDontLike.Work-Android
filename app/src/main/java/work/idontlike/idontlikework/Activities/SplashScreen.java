@@ -11,8 +11,11 @@ import android.widget.TextView;
 
 import org.json.JSONArray;
 
+import java.util.ArrayList;
 import java.util.TimerTask;
 
+import work.idontlike.idontlikework.Constants;
+import work.idontlike.idontlikework.Models.Reason;
 import work.idontlike.idontlikework.R;
 import work.idontlike.idontlikework.Services.ReasonFetcher;
 
@@ -22,6 +25,8 @@ public class SplashScreen extends AppCompatActivity {
   Button showReasonButton;
   TextView loadingText;
   boolean isReasonButtonVisible = false;
+
+  ArrayList<Reason> reasons;
 
   String mainText = "Curating some awesome reasons";
   int dotCount = 0;
@@ -44,7 +49,8 @@ public class SplashScreen extends AppCompatActivity {
     ReasonFetcher reasonFetcher = new ReasonFetcher();
     reasonFetcher.setOnCompleteListener(new ReasonFetcher.OnCompleteListener() {
       @Override
-      public void onComplete(JSONArray jsonArray) {
+      public void onComplete(ArrayList<Reason> _reasons) {
+        reasons = _reasons;
         showReasonButton.post(new Runnable() {
           @Override
           public void run() {
@@ -56,35 +62,38 @@ public class SplashScreen extends AppCompatActivity {
       }
     });
 
-    Runnable runnable = new Runnable() {
-      @Override
-      public void run() {
-        try {
-          Thread.sleep(15000);
-        } catch (InterruptedException e) {
-          e.printStackTrace();
-        }
-        if(!isReasonButtonVisible){
-          showReasonButton.post(new Runnable() {
-            @Override
-            public void run() {
-              showReasonButton.setVisibility(View.VISIBLE);
-              loadingView.setVisibility(View.GONE);
-            }
-          });
-        }
-      }
-    };
 
-    Thread thread = new Thread(runnable);
-    thread.start();
+//    Runnable runnable = new Runnable() {
+//      @Override
+//      public void run() {
+//        try {
+//          Thread.sleep(15000);
+//        } catch (InterruptedException e) {
+//          e.printStackTrace();
+//        }
+//        if(!isReasonButtonVisible){
+//          showReasonButton.post(new Runnable() {
+//            @Override
+//            public void run() {
+//              showReasonButton.setVisibility(View.VISIBLE);
+//              loadingView.setVisibility(View.GONE);
+//            }
+//          });
+//        }
+//      }
+//    };
+//
+//    Thread thread = new Thread(runnable);
+//    thread.start();
 
     reasonFetcher.execute();
 
     showReasonButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        startActivity(new Intent(SplashScreen.this, Reasons.class));
+        Intent intent = new Intent(SplashScreen.this, Reasons.class);
+        intent.putExtra(Constants.BundleKeys.REASON_ARRAY_LIST, reasons);
+        startActivity(intent);
         finish();
         overridePendingTransition(R.anim.reason_activity_enter, R.anim.splash_screen_exit);
       }

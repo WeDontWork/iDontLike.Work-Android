@@ -18,6 +18,7 @@ import java.util.ArrayList;
 
 import work.idontlike.idontlikework.Constants;
 import work.idontlike.idontlikework.Fragments.ReasonFragment;
+import work.idontlike.idontlikework.Models.Reason;
 import work.idontlike.idontlikework.R;
 
 /**
@@ -27,10 +28,10 @@ public class ReasonFragmentAdapter extends PagerAdapter{
 
   Context context;
   LayoutInflater layoutInflater;
-  private ArrayList<String> reasons = new ArrayList<>();
+  private ArrayList<Reason> reasons = new ArrayList<>();
 
 
-  public ReasonFragmentAdapter( /* FragmentManager fm, */Context context, ArrayList<String> reasons) {
+  public ReasonFragmentAdapter( /* FragmentManager fm, */Context context, ArrayList<Reason> reasons) {
 //    super(fm);
     this.context = context;
     this.reasons = reasons;
@@ -45,7 +46,7 @@ public class ReasonFragmentAdapter extends PagerAdapter{
     ConstraintLayout layout = (ConstraintLayout) layoutInflater.inflate(R.layout.fragment_reason, container, false);
     TextView reasonTextView = layout.findViewById(R.id.reason_text);
     container.addView(layout);
-    reasonTextView.setText(reasons.get(position).concat(".\nWill be working from home"));
+    reasonTextView.setText(reasons.get(position).getText().concat(".\nWill be working from home"));
 
     return layout;
   }

@@ -5,16 +5,19 @@ import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
 import javax.net.ssl.HttpsURLConnection;
 
 import work.idontlike.idontlikework.Constants;
+import work.idontlike.idontlikework.Models.Reason;
 
 /**
  * Created by rentomojo on 4/13/18.
@@ -63,14 +66,35 @@ public class ReasonFetcher extends AsyncTask<Void, Void, JSONArray> {
   @Override
   protected void onPostExecute(JSONArray jsonArray) {
     super.onPostExecute(jsonArray);
-    if (onCompleteListener != null) {
-      onCompleteListener.onComplete(jsonArray);
+
+    if(jsonArray == null){
+      if (onCompleteListener != null) {
+        onCompleteListener.onComplete(null);
+      }
+      return;
     }
+
+    ArrayList<Reason> reasons = new ArrayList<>();
+
+
+    for(int i = 0 ; i < jsonArray.length(); i++){
+      try {
+        reasons.add(Reason.parseJSON(jsonArray.getJSONObject(i)));
+      } catch (JSONException e) {
+        e.printStackTrace();
+      }
+    }
+
+    if (onCompleteListener != null) {
+      onCompleteListener.onComplete(reasons);
+    }
+
+
   }
 
 
   public interface OnCompleteListener {
-    void onComplete(JSONArray jsonArray);
+    void onComplete(ArrayList<Reason> reasons);
   }
 
   public interface OnPreExecuteListener {

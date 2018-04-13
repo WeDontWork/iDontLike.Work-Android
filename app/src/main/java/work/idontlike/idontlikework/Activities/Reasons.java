@@ -19,11 +19,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import work.idontlike.idontlikework.Adapters.ReasonFragmentAdapter;
+import work.idontlike.idontlikework.Constants;
+import work.idontlike.idontlikework.Models.Reason;
 import work.idontlike.idontlikework.R;
 
 public class Reasons extends AppCompatActivity {
 
   GradationViewPager viewPager;
+  ArrayList<Reason> reasons;
   Button copyButton;
   int reasonCount = 1;
 
@@ -43,8 +46,9 @@ public class Reasons extends AppCompatActivity {
     setContentView(R.layout.activity_reasons);
 
     viewPager = findViewById(R.id.viewpager);
-
     copyButton = findViewById(R.id.copy_reason_button);
+
+    reasons = (ArrayList<Reason>) getIntent().getSerializableExtra(Constants.BundleKeys.REASON_ARRAY_LIST);
 
     final int[] colorList = new int[dummyReasons.length];
     for (int i = 0; i < dummyReasons.length; i++) {
@@ -52,8 +56,8 @@ public class Reasons extends AppCompatActivity {
       colorList[i] =colorStore[i%colorStore.length];
     }
 
-    ReasonFragmentAdapter adapter = new ReasonFragmentAdapter(this, new ArrayList<String>(Arrays.asList(dummyReasons)));
-    reasonCount = dummyReasons.length;
+    ReasonFragmentAdapter adapter = new ReasonFragmentAdapter(this, reasons);
+    reasonCount = reasons.size();
     viewPager.setAdapter(adapter);
     viewPager.setBackGroundColors(colorList);
 
@@ -90,7 +94,7 @@ public class Reasons extends AppCompatActivity {
       @Override
       public void onClick(View view) {
         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-        ClipData clip = ClipData.newPlainText("Copy Text", dummyReasons[selectedReason].concat(". Will be working from home"));
+        ClipData clip = ClipData.newPlainText("Copy Text", reasons.get(selectedReason).getText().concat(". Will be working from home"));
         clipboard.setPrimaryClip(clip);
 
         Toast.makeText(Reasons.this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
