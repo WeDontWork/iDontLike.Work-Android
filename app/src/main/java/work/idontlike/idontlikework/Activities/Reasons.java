@@ -5,6 +5,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -27,6 +28,7 @@ public class Reasons extends AppCompatActivity {
 
   GradationViewPager viewPager;
   ArrayList<Reason> reasons;
+  ConstraintLayout constraintLayout;
   TextView headerTextView;
   Button copyButton;
   int reasonCount = 1;
@@ -49,17 +51,19 @@ public class Reasons extends AppCompatActivity {
     viewPager = findViewById(R.id.viewpager);
     copyButton = findViewById(R.id.copy_reason_button);
     headerTextView = findViewById(R.id.headerTextView);
+    constraintLayout = findViewById(R.id.constraintLayout);
+
 
     reasons = (ArrayList<Reason>) getIntent().getSerializableExtra(Constants.BundleKeys.REASON_ARRAY_LIST);
+    reasonCount = reasons.size();
 
-    final int[] colorList = new int[dummyReasons.length];
-    for (int i = 0; i < dummyReasons.length; i++) {
+    final int[] colorList = new int[reasonCount];
+    for (int i = 0; i < reasonCount; i++) {
 //      colorList[i] = getResources().getColor(colorIdStore[i % colorIdStore.length], null);
       colorList[i] =colorStore[i%colorStore.length];
     }
 
     ReasonFragmentAdapter adapter = new ReasonFragmentAdapter(this, reasons);
-    reasonCount = reasons.size();
     viewPager.setAdapter(adapter);
     viewPager.setBackGroundColors(colorList);
 
@@ -78,6 +82,8 @@ public class Reasons extends AppCompatActivity {
         if(position >= reasonCount){
           position = 0;
         }
+
+        Log.e("Reason count", "" + reasonCount + " " + selectedReason + " " + position);
         selectedReason = (position)%reasonCount;
         copyButton.setTextColor(colorList[selectedReason]);
         headerTextView.setTextColor(colorList[selectedReason]);
@@ -86,6 +92,13 @@ public class Reasons extends AppCompatActivity {
       @Override
       public void onPageScrollStateChanged(int state) {
 
+      }
+    });
+
+    constraintLayout.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        viewPager.setCurrentItem((selectedReason+1)%reasons.size());
       }
     });
 
@@ -98,7 +111,7 @@ public class Reasons extends AppCompatActivity {
       @Override
       public void onClick(View view) {
         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-        ClipData clip = ClipData.newPlainText("Copy Text", reasons.get(selectedReason).getText().concat(". Will be working from home"));
+        ClipData clip = ClipData.newPlainText("Copy Text", reasons.get(selectedReason).getText());
         clipboard.setPrimaryClip(clip);
 
         Toast.makeText(Reasons.this, "Copied to clipboard", Toast.LENGTH_SHORT).show();

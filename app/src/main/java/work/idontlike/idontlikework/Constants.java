@@ -5,7 +5,7 @@ package work.idontlike.idontlikework;
  */
 
 public class Constants {
-  private static final String API_HOST = "https://api.myjson.com/bins/1g03o7";
+  private static final String API_HOST = "https://s3.ap-south-1.amazonaws.com/idontlikework/wfh-reasons.json";
   public static final String SHEETS_URL = API_HOST;
 
   public static class BundleKeys {

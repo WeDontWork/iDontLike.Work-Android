@@ -46,7 +46,7 @@ public class ReasonFragmentAdapter extends PagerAdapter{
     ConstraintLayout layout = (ConstraintLayout) layoutInflater.inflate(R.layout.fragment_reason, container, false);
     TextView reasonTextView = layout.findViewById(R.id.reason_text);
     container.addView(layout);
-    reasonTextView.setText(reasons.get(position).getText().concat(".\nWill be working from home"));
+    reasonTextView.setText(reasons.get(position).getText());
 
     return layout;
   }

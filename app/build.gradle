@@ -8,6 +8,12 @@ android {
             storeFile file('/Users/rentomojo/.android/debug.keystore')
             storePassword '1234567890'
         }
+        releaseConfig {
+            keyAlias 'wedontwork'
+            keyPassword 'wh1t3b0@rd'
+            storeFile file('/Applications/Android Studio.app/Contents/bin/idontlikework.keystore')
+            storePassword 'wh1t3b0@rd'
+        }
     }
     compileSdkVersion 27
     defaultConfig {
@@ -23,6 +29,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.releaseConfig
         }
         debug {
             signingConfig signingConfigs.config

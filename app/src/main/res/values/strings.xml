@@ -6,4 +6,5 @@
 
     <string name="hello_blank_fragment">Not feeling well. WFH</string>
     <string name="reason_screen_button_text">Copy this reason</string>
+    <string name="splash_screen_description">The ultimate productivity tool you have been waiting for is here!\nGo Work From Home</string>
 </resources>

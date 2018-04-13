@@ -21,7 +21,7 @@ import work.idontlike.idontlikework.Services.ReasonFetcher;
 
 public class SplashScreen extends AppCompatActivity {
 
-  LinearLayout loadingView;
+  LinearLayout loadingView, descriptionView;
   Button showReasonButton;
   TextView loadingText;
   boolean isReasonButtonVisible = false;
@@ -45,6 +45,8 @@ public class SplashScreen extends AppCompatActivity {
 
     loadingView = findViewById(R.id.loading_view);
     showReasonButton = findViewById(R.id.show_reason_button);
+    descriptionView = findViewById(R.id.showreasonslayout);
+
 
     ReasonFetcher reasonFetcher = new ReasonFetcher();
     reasonFetcher.setOnCompleteListener(new ReasonFetcher.OnCompleteListener() {
@@ -55,7 +57,8 @@ public class SplashScreen extends AppCompatActivity {
           @Override
           public void run() {
             isReasonButtonVisible = true;
-            showReasonButton.setVisibility(View.VISIBLE);
+            descriptionView.setVisibility(View.VISIBLE);
+//            showReasonButton.setVisibility(View.VISIBLE);
             loadingView.setVisibility(View.GONE);
           }
         });
