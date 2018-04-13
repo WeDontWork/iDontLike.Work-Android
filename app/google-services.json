@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "869690770579",
+    "firebase_url": "https://idontlikework-64b4a.firebaseio.com",
+    "project_id": "idontlikework-64b4a",
+    "storage_bucket": "idontlikework-64b4a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:869690770579:android:46a0e85ec227d18a",
+        "android_client_info": {
+          "package_name": "work.idontlike.idontlikework"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "869690770579-i5c77gngm8nbm5too09h5gdaa6hfkkk6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "work.idontlike.idontlikework",
+            "certificate_hash": "2bd1eb39c1fb337b9e60fb2531ce1f7a1b4a7d62"
+          }
+        },
+        {
+          "client_id": "869690770579-uulcfj2b4rocj1dou640vsae8d9ij2p4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4V7QdAfqovUaWKysBi8SWBesIswCUJ2c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "869690770579-uulcfj2b4rocj1dou640vsae8d9ij2p4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -4,7 +4,7 @@
             "outputFile": "/Users/rentomojo/Documents/Personal/IDontLikeWork/bounce-animation/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-af/values-af.xml",
             "map": [
                 {
-                    "source": "/Users/rentomojo/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/e53a7679e7e61777c64e52dd0e4f5b60/res/values-af/values-af.xml",
+                    "source": "/Users/rentomojo/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/2d669f0f74f7dc6f74f43d2fc7cd80c1/res/values-af/values-af.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/rentomojo/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/b9317e9b7326aaa9d247907895520e53/res/values-af/values-af.xml",
+                    "source": "/Users/rentomojo/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/e60ebf54395892d6635588c9f07186c2/res/values-af/values-af.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

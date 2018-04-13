@@ -7,8 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import org.json.JSONArray;
+
+import java.util.TimerTask;
 
 import work.idontlike.idontlikework.R;
 import work.idontlike.idontlikework.Services.ReasonFetcher;
@@ -17,12 +20,23 @@ public class SplashScreen extends AppCompatActivity {
 
   LinearLayout loadingView;
   Button showReasonButton;
+  TextView loadingText;
   boolean isReasonButtonVisible = false;
+
+  String mainText = "Curating some awesome reasons";
+  int dotCount = 0;
+  final int DOT_ADD_DURATION = 400;
+  final int MAX_DOT_COUNT=4;
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_splash);
+
+
+
+    loadingText = findViewById(R.id.loading_text_view);
 
     loadingView = findViewById(R.id.loading_view);
     showReasonButton = findViewById(R.id.show_reason_button);
@@ -59,7 +73,6 @@ public class SplashScreen extends AppCompatActivity {
             }
           });
         }
-
       }
     };
 
@@ -76,5 +89,25 @@ public class SplashScreen extends AppCompatActivity {
         overridePendingTransition(R.anim.reason_activity_enter, R.anim.splash_screen_exit);
       }
     });
+
+//    final Handler handler = new Handler();
+//    handler.postDelayed(new Runnable() {
+//      @Override
+//      public void run() {
+//        String dotString = "";
+//        for(int i= 0 ; i < dotCount%MAX_DOT_COUNT; i++){
+//          dotString = dotString.concat(".");
+//        }
+//        final String displayString = mainText.concat(dotString);
+//        loadingText.post(new Runnable() {
+//          @Override
+//          public void run() {
+//            loadingText.setText(displayString);
+//          }
+//        });
+//        dotCount += 1;
+//        handler.postDelayed(this, DOT_ADD_DURATION);
+//      }
+//    }, DOT_ADD_DURATION);
   }
 }

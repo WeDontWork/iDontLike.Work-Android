@@ -7,4 +7,8 @@ package work.idontlike.idontlikework;
 public class Constants {
   private static final String API_HOST = "https://sheetsu.com/apis/v1.0su/31894cf15305";
   public static final String SHEETS_URL = API_HOST;
+
+  public static class BundleKeys {
+    public static final String REASON_TEXT = "reasonText";
+  }
 }

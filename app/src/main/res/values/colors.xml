@@ -9,4 +9,5 @@
     <color name="splash_screen_text_color_transparent75">#d8ffffff</color>
     <color name="splash_screen_text_color_transparent50">#c8ffffff</color>
     <color name="darkTransparent">#6f000000</color>
+    <color name="reason_fragment_main_text_color">#fff</color>
 </resources>
