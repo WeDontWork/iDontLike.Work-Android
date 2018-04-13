@@ -27,6 +27,7 @@ public class Reasons extends AppCompatActivity {
 
   GradationViewPager viewPager;
   ArrayList<Reason> reasons;
+  TextView headerTextView;
   Button copyButton;
   int reasonCount = 1;
 
@@ -47,6 +48,7 @@ public class Reasons extends AppCompatActivity {
 
     viewPager = findViewById(R.id.viewpager);
     copyButton = findViewById(R.id.copy_reason_button);
+    headerTextView = findViewById(R.id.headerTextView);
 
     reasons = (ArrayList<Reason>) getIntent().getSerializableExtra(Constants.BundleKeys.REASON_ARRAY_LIST);
 
@@ -78,6 +80,7 @@ public class Reasons extends AppCompatActivity {
         }
         selectedReason = (position)%reasonCount;
         copyButton.setTextColor(colorList[selectedReason]);
+        headerTextView.setTextColor(colorList[selectedReason]);
       }
 
       @Override
@@ -87,6 +90,7 @@ public class Reasons extends AppCompatActivity {
     });
 
     copyButton.setTextColor(colorList[0]);
+    headerTextView.setTextColor(colorList[0]);
 
 
 

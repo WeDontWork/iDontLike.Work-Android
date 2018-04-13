@@ -18,12 +18,12 @@
         tools:layout_editor_absoluteY="0dp" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/headerTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@color/darkTransparent"
+        android:background="#fff"
         android:fontFamily="@font/roboto_regular"
         android:paddingBottom="20dp"
         android:paddingEnd="20dp"
